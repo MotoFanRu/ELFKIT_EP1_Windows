@@ -14,15 +14,15 @@
 // Макрос для преобразования трёх 8-битных компонент цвета в формат 565
 #define ATI_565RGB(r,g,b) (UINT32)((r&0xf8)<<8 | (g&0xFC)<<3 | (b&0xf8)>>3)
 
-enum DISPLAY_TYPE_ENUM
-{
-	DISPLAY_MAIN=0,
-	DISPLAY_CLI,
-	DISPLAY_EXTERNAL,
-	DISPLAY_MAIN_AND_CLI,
-	DISPLAY_NONE
-};
-typedef UINT8 DISPLAY_TYPE_T;
+//enum DISPLAY_TYPE_ENUM
+//{
+//	DISPLAY_MAIN=0,
+//	DISPLAY_CLI,
+//	DISPLAY_EXTERNAL,
+//	DISPLAY_MAIN_AND_CLI,
+//	DISPLAY_NONE
+//};
+//typedef UINT8 DISPLAY_TYPE_T;
 
 enum
 {
@@ -46,6 +46,16 @@ extern "C" {
 AHISURFACE_T DAL_ATISurfAlloc( AHIDEVCONTEXT_T devCtx, UINT32 size, AHIPIXFMT_T pixFmt );
 
 BOOL DAL_ATISurfFree( AHIDEVCONTEXT_T devCtx, AHISURFACE_T surf );
+
+enum DISPLAY_TYPE_ENUM
+{
+	DISPLAY_MAIN=0,
+	DISPLAY_CLI,
+	DISPLAY_EXTERNAL,
+	DISPLAY_MAIN_AND_CLI,
+	DISPLAY_NONE
+};
+typedef UINT8 DISPLAY_TYPE_T;
 
 /* Возвращает системный контент. Не рекомендуется менять */
 AHIDEVCONTEXT_T DAL_GetDeviceContext( DISPLAY_TYPE_T display );

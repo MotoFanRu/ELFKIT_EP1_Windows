@@ -333,6 +333,13 @@ extern UINT32 display_source_buffer;
 UINT32 suDisableAllInt(void); // отключает прерывания
 void suSetInt(UINT32 mask);   // включает прерывания, в параметрах передаётся то, что вернула suDisableAllInt
 
+#define SU_FLAG_LOW_POWER_ENABLE                           0
+#define SU_FLAG_LOW_POWER_DISABLE                          1
+
+UINT32 suAllocLowPowerFlag(INT32 init_state, INT32 *err);
+void suEnableLowPowerFlag(UINT32 flag, INT32 *err);
+void suDisableLowPowerFlag(UINT32 flag, INT32 *err);
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
